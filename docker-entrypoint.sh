@@ -1,5 +1,14 @@
 #!/bin/sh
 
+# Clone repo if needed
+if [ ! -f "/opt/plexconnect/PlexConnect.py" ] && [ "${GIT_REPO_SHA}" ]; then
+  echo "Cloning git repo"
+  git clone https://github.com/jswetzen/PlexConnect.git /opt/plexconnect
+  cd "/opt/plexconnect" || exit 1
+  git reset --hard "${GIT_REPO_SHA}"
+  cd "/" || exit 1
+fi
+
 # Create ssl certificate if needed
 if [ ! -f "/opt/plexconnect/assets/certificates/trailers.pem" ]; then
   cd "/opt/plexconnect/assets/certificates" || exit 1

@@ -14,9 +14,10 @@ ENV PLEXCONNECT_ENABLE_PLEXGDM=False \
     PLEXCONNECT_IP_DNSMASTER=8.8.8.8 \
     PLEXCONNECT_PREVENT_ATV_UPDATE=True \
     PLEXCONNECT_HOSTTOINTERCEPT=trailers.apple.com \
-    PLEXCONNECT_LOGLEVEL=Normal
+    PLEXCONNECT_LOGLEVEL=Normal \
+    GIT_REPO_SHA=""
 
-RUN git clone -b dnsfix https://github.com/jswetzen/PlexConnect.git /opt/plexconnect
+RUN git clone https://github.com/jswetzen/PlexConnect.git /opt/plexconnect
 
 COPY docker-entrypoint.sh /usr/local/bin/
 
