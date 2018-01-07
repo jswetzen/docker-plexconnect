@@ -26,3 +26,4 @@ ENTRYPOINT ["docker-entrypoint.sh"]
 
 CMD python /opt/plexconnect/PlexConnect.py
 
+VOLUME ["/mnt/plexconnect-config"]

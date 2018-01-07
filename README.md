@@ -1,11 +1,10 @@
 # Basic Usage
 
 Running PlexConnect with PMS on `1.2.3.4` and the Docker host on `192.168.0.2`.
-The PlexConnect git repo will be mounted as a volume at `/opt/plexconnect` on
-the host machine so that certificates and Plex login details are persistent.
+The PlexConnect configuration will be mounted as a volume so that certificates
+and Plex login details are persistent.
 
     docker run -d --name plexconnect \
-      --volume /opt/plexconnect:/opt/plexconnect \
       -p53:53/udp -p80:80 -p443:443 \
       -e PLEXCONNECT_ENABLE_PLEXGDM=False \
       -e PLEXCONNECT_IP_PMS=1.2.3.4 \
@@ -16,6 +15,13 @@ the host machine so that certificates and Plex login details are persistent.
 Stop the container with `docker kill plexconnect`. The Apple TV needs to be
 configured as described in the
 [wiki](https://github.com/iBaa/PlexConnect/wiki/Install-Guide#setup-your-atv).
+
+## Accessing the settings volume
+The 
+
+The PlexConnect configuration will be mounted as a volume at
+`/opt/plexconnect-config` on the host machine so that certificates and Plex
+login details are persistent.
 
 # Supported tags and architectures
 
