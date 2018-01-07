@@ -17,7 +17,12 @@ configured as described in the
 [wiki](https://github.com/iBaa/PlexConnect/wiki/Install-Guide#setup-your-atv).
 
 ## Accessing the settings volume
-The 
+The configuration is separated from the plexconnect application for easy storage
+in a Docker volume. The important parts are the ATVSettings.cfg and Settings.cfg
+configuration files as well as the "assets/certificates" directory. So the
+layout of the volume is as follows:
+```
+
 
 The PlexConnect configuration will be mounted as a volume at
 `/opt/plexconnect-config` on the host machine so that certificates and Plex
